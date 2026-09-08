@@ -1,4 +1,4 @@
-# Foundry
+# Abominable
 
 Minimal personal and family finance workspace with long-term wealth projections.
 

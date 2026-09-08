@@ -28,9 +28,9 @@ export function AccountSidebar({ selectedIds, onToggle, focusedId, onFocus }: Pr
       <div className="px-2">
         <div className="flex items-center gap-2">
           <div className="grid size-6 place-items-center rounded-md bg-primary text-[11px] font-semibold text-primary-foreground">
-            F
+            A
           </div>
-          <span className="text-sm font-semibold tracking-tight">Foundry</span>
+          <span className="text-sm font-semibold tracking-tight">Abominable</span>
         </div>
         <div className="mt-4">
           <p className="text-[11px] uppercase tracking-[0.12em] text-muted-foreground">

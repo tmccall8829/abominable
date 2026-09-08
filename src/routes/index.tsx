@@ -8,13 +8,13 @@ import { accounts } from "@/lib/finance";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Foundry — Family Wealth Projections" },
+      { title: "Abominable — Family Wealth Projections" },
       {
         name: "description",
         content:
           "Track checking, savings, investment, and retirement accounts in one calm workspace, with long-term wealth projections and a live transaction ledger.",
       },
-      { property: "og:title", content: "Foundry — Family Wealth Projections" },
+      { property: "og:title", content: "Abominable — Family Wealth Projections" },
       {
         property: "og:description",
         content:
