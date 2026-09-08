@@ -18,7 +18,18 @@ As development on Abominable progresses, we'll integrate AI tooling more deeply 
 - You shouldn't be able to let your anxieties about your finances spiral through unlimited conversations with agentic enablers
 
 ## What does Abominable look like?
-![Preview](./readme_screenshot_20260907.png)
+
+#### Homepage
+
+![Preview](./readme_screenshot_1_20260908.png)
+
+#### Example AI interaction dialogues
+
+![Preview](./readme_screenshot_2_20260908.png)
+![Preview](./readme_screenshot_3_20260908.png)
+
+#### Example homepage with pinned AI conversation details
+![Preview](./readme_screenshot_4_20260908.png)
 
 ## Development
 
