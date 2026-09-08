@@ -73,12 +73,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Foundry — Family Wealth" },
+      { title: "Abominable — Family Wealth" },
       {
         name: "description",
         content: "Minimal personal and family finance workspace with long-term wealth projections.",
       },
-      { property: "og:title", content: "Foundry — Family Wealth" },
+      { property: "og:title", content: "Abominable — Family Wealth" },
       {
         property: "og:description",
         content: "Minimal personal and family finance workspace with long-term wealth projections.",
@@ -97,7 +97,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
     ],
   }),
   shellComponent: RootShell,
