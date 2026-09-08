@@ -16,9 +16,10 @@ type Props = {
   onToggle: (id: string) => void;
   focusedId: string | null;
   onFocus: (id: string) => void;
+  onAsk: () => void;
 };
 
-export function AccountSidebar({ selectedIds, onToggle, focusedId, onFocus }: Props) {
+export function AccountSidebar({ selectedIds, onToggle, focusedId, onFocus, onAsk }: Props) {
   const total = accounts
     .filter((a) => selectedIds.includes(a.id))
     .reduce((s, a) => s + a.balance, 0);
@@ -40,6 +41,16 @@ export function AccountSidebar({ selectedIds, onToggle, focusedId, onFocus }: Pr
             {currency(total)}
           </p>
         </div>
+        <button
+          onClick={onAsk}
+          className="mt-3.5 flex w-full items-center gap-2 rounded-lg border border-border bg-card px-2.5 py-1.5 text-muted-foreground transition-colors hover:bg-sidebar-accent"
+        >
+          <span className="size-1.5 shrink-0 rounded-full bg-primary" />
+          <span className="flex-1 whitespace-nowrap text-left text-xs">Ask about your money</span>
+          <kbd className="rounded bg-muted px-1.5 py-0.5 font-mono text-[10px] font-medium text-muted-foreground">
+            ⌘K
+          </kbd>
+        </button>
       </div>
 
       <div className="flex-1 space-y-5 overflow-y-auto pb-4">
