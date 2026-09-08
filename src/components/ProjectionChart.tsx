@@ -9,7 +9,9 @@ import {
   YAxis,
 } from "recharts";
 import { compact, currency, projectWealth, type Account } from "@/lib/finance";
+import type { Insight } from "@/lib/insights";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 const horizons = [10, 20, 30, 40];
 const scenarios = [
@@ -24,9 +26,19 @@ type Props = {
   onYears: (y: number) => void;
   scenario: (typeof scenarios)[number]["key"];
   onScenario: (s: (typeof scenarios)[number]["key"]) => void;
+  pinned: Insight | null;
+  onUnpin: () => void;
 };
 
-export function ProjectionChart({ selected, years, onYears, scenario, onScenario }: Props) {
+export function ProjectionChart({
+  selected,
+  years,
+  onYears,
+  scenario,
+  onScenario,
+  pinned,
+  onUnpin,
+}: Props) {
   const adj = scenarios.find((s) => s.key === scenario)!.adj;
   const data = useMemo(() => projectWealth(selected, years, adj), [selected, years, adj]);
   const last = data[data.length - 1]!;
@@ -60,6 +72,32 @@ export function ProjectionChart({ selected, years, onYears, scenario, onScenario
           />
         </div>
       </header>
+
+      {pinned && (
+        <div className="animate-in fade-in mt-4 flex items-center gap-3.5 rounded-xl border border-border bg-sidebar p-3">
+          <span className="size-1.5 shrink-0 rounded-full bg-primary" />
+          <div className="min-w-0 flex-1">
+            <p className="text-[12.5px] font-medium">{pinned.question}</p>
+            <p className="mt-0.5 text-[11.5px] leading-snug text-muted-foreground text-pretty">
+              {pinned.note}
+            </p>
+          </div>
+          <div className="flex shrink-0 gap-2.5">
+            {pinned.stats.map((s) => (
+              <div
+                key={s.k}
+                className="rounded-lg border border-border bg-card px-2.5 py-1.5 text-right"
+              >
+                <p className="whitespace-nowrap text-[9.5px] text-muted-foreground">{s.k}</p>
+                <p className="mt-0.5 font-mono text-sm">{s.v}</p>
+              </div>
+            ))}
+          </div>
+          <Button variant="outline" size="sm" className="shrink-0" onClick={onUnpin}>
+            Unpin
+          </Button>
+        </div>
+      )}
 
       <div className="mt-6 min-h-[260px] flex-1">
         <ResponsiveContainer width="100%" height="100%">
